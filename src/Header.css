@@ -1,0 +1,23 @@
+.headerContent { 
+    width: 100%;
+    height: 50%; 
+    background-image: linear-gradient(to right, rgba(110, 108, 108, 0), rgb(168, 156, 156, 0.5));
+}
+
+.header-image {
+    width: 70%;
+    height: auto;
+}
+
+.left-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 60px;
+}
+.left-side > h6 {
+    line-height: 30px;
+}
