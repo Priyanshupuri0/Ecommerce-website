@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 // receives component and any other props represented by ...rest
-export default function ProtectedRoutes({ component: Component, ...rest }) {
+export default function ProtectedRoutes({ element: Element, ...rest }) {
   return (
     <Routes>
     // this route takes other routes assigned to it from the App.js and return the same route if condition is met
@@ -16,7 +16,7 @@ export default function ProtectedRoutes({ component: Component, ...rest }) {
 
         // returns route if there is a valid token set in the cookie
         if (token) {
-          return <Component {...props} />;
+          return <Element {...props} />;
         } else {
           // returns the user to the landing page if there is no valid token set
           return (

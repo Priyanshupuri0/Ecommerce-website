@@ -1,0 +1,18 @@
+/* .navbar-head {
+    height: 3rem;
+    width: 100%;
+}
+.column-left {
+
+    float: left;
+    height: 100vh;
+    background-color: aquamarine;
+}
+.left-panel {
+    
+} */
+.main-container {
+    background-color: #dadada;
+    height: 100%;
+    border: 5px solid black;
+}

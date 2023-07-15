@@ -3,8 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from "./Utilities/logo.png";
+import { useEffect, useState, useRef } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-const navbar = () => {
+const NavbarComponent = () => {
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary py-3">
@@ -35,4 +36,4 @@ const navbar = () => {
   );
 }
 
-export default navbar;
+export default NavbarComponent;
