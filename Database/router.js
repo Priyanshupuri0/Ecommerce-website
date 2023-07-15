@@ -3,6 +3,6 @@ const controller = require('./controller');
 
 router
     .post('/sendForm', controller.getUser)
-    // .get('/', controller.getUser)
+    .get('/getAllUsers', controller.getAllUsers)
     .post('/register', controller.registerUser)
 module.exports = router;

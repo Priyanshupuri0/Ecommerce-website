@@ -56,7 +56,24 @@ exports.getUser = async (req, res) => {
     });
 };
 
-
+// get all users
+exports.getAllUsers = async (req, res) => {
+  try {
+    // get all users
+    const users = await User.find();
+    // return success response
+    res.status(200).send({
+      message: "Users fetched successfully",
+      users,
+    });
+  } catch (error) {
+    // return error response
+    res.status(500).send({
+      message: "Error fetching users",
+      error,
+    });
+  }
+};
 
 
 // register endpoint
