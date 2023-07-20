@@ -1,0 +1,100 @@
+  .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+    
+    .product-box {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 320px;
+      height: 450px;
+      display: flex; /* Use flexbox */
+      flex-direction: column; /* Stack the child elements vertically */
+      justify-content: space-between; /* Distribute space between the child elements */
+    }
+
+    .product-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+    
+    .product-box img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      flex: 1; /* Let the image take available space */
+    }
+    
+    .product-box h3 {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+    
+    .ratings {
+      color: #f7bf32;
+      font-size: 20px;
+      margin-top: 2px;
+    }
+    
+    .ratings span {
+      display: inline-block;
+      width: 16px;
+      overflow: hidden;
+    }
+    
+    .ratings::before {
+      content: "★★★★★";
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #f7bf32 calc(var(--rating) * 20%), #ddd calc(var(--rating) * 20%));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .product-buttons {
+      /* display: flex; */
+      /* justify-content: space-between; */
+      margin-top: 10px;
+    }
+    .btn-bn, .btn-ac {
+      width: 10rem;
+    }
+    .pagination {
+      margin: 2rem;
+    }
+    .span-icon {
+      position: absolute;
+      display: none;
+      justify-content: end;
+      top: 0;
+      right: 0;
+    }
+    .product-box:hover .span-icon {
+      display: flex; 
+    } 
+    .fa-thumbs-up, .fa-thumbs-down{
+      position: relative;
+      z-index: 2;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .fa-thumbs-up:hover, .fa-thumbs-down:hover {
+      font-size: large;
+    }

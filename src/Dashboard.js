@@ -9,6 +9,7 @@ import { ListGroup } from "react-bootstrap";
 import DTable from "./Dashboard-content/DTable";
 import AddUser from "./Dashboard-content/AddUser";
 import styled from "styled-components";
+import ResetPassword from "./Dashboard-content/ResetPassword";
 
 const StyledComponents = styled.div`
 body {
@@ -65,7 +66,7 @@ const Dashboard = () => {
     { component: <DTable />, state: is6 },
     { component: <AddUser />, state: is7 },
     { component: <AddUser />, state: is8 },
-    { component: <AddUser />, state: is9 },
+    { component: <ResetPassword />, state: is9 },
   ];
 
   const [currentTime, setCurrentTime] = useState(

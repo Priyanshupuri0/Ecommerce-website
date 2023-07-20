@@ -20,6 +20,7 @@ function App() {
 
   const [isCorrect, setIsCorrect] = useState(false);
 
+
   const handleSubmit = (e) => {
     console.log("I am in");
     e.preventDefault();
@@ -43,8 +44,8 @@ function App() {
           document.cookie = `TOKEN=${data.token}; path=/`;
           window.location.href = "/Dashboard";
         } else {
-        //   window.location.href = "/Admin";
-        setIsCorrect(true);
+          //   window.location.href = "/Admin";
+          setIsCorrect(true);
         }
       })
       .catch((error) => {
@@ -54,8 +55,7 @@ function App() {
 
   return (
     <MDBContainer fluid className="p-3 mainContainer">
-      {isCorrect && <Incorrect />}
-
+      {isCorrect && <Incorrect reloadLocation = "/Admin" toDisplay = "Login"/>}
       <MDBRow>
         <h1 className="text-center mt-3 mb-5">Admin Login </h1>
 

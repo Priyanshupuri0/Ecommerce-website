@@ -5,7 +5,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from "./Utilities/logo.png";
 import { useEffect, useState, useRef } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
+import MainComponent from './MainComponent';
+import {useLocation} from 'react-router-dom';
 const NavbarComponent = () => {
+
+  const location = useLocation();
+  const ismainComponentorDashboardPage = location.pathname.includes('/mainComponent') || location.pathname.includes('/Dashboard');
+
+  if(ismainComponentorDashboardPage) {
+    return null;
+  }
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary py-3">
@@ -18,6 +27,9 @@ const NavbarComponent = () => {
           <Nav className="ml-auto">
             <Nav.Link href="#header">Home</Nav.Link>
             <Nav.Link href="#content1">Feature</Nav.Link>
+            <LinkContainer to="/mainComponent">
+            <Nav.Link>Component</Nav.Link>
+            </LinkContainer>
             <NavDropdown title="Login" id="basic-nav-dropdown">
               <LinkContainer to="/Admin">
                 <NavDropdown.Item>Admin</NavDropdown.Item>

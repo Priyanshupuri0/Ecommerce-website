@@ -16,7 +16,7 @@ const header = () => {
                         <h6>Work with world-class designer to create infographics that stand out.
                             We make it fast, easy, and affordable.
                         </h6>
-                        <Link to="/Admin" className='d-inline-block' style={{width: "15%"}}>
+                        <Link to="/Admin" className='d-inline-block' style={{width: "25%"}}>
                             <Button variant="primary" size="lg">Sign In</Button>
                         </Link>
                     </div>

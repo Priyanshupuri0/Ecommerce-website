@@ -1,60 +1,48 @@
-import React, { useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import Incorrect from '../incorrect';
+const ResetPassword = () => {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isIncorrect, setIsIncorrect] = useState(false);
 
-const AddUser = () => {
   const [users, setUsers] = useState({
     username: "",
     password: "",
   });
-
   const handleChange = (e) => {
     console.log("handle change");
     setUsers({ ...users, [e.target.name]: e.target.value });
   };
 
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const addUser = (e) => {
+  const resetPassword = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8080/register", {
+    fetch("http://localhost:8080/resetPassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(users),
     })
-      .then((res) => res.json())
+      .then((res) => res.json())  
       .then((data) => {
         console.log(data);
-        if (data.message === "User Created Successfully") {
-          setIsSuccess(true);
-          setUsers({
-            username: "",
-            password: "",
-          });
-        }
+        if (data.message === "Password reset successfully") setIsSuccess(true);
+        else setIsIncorrect(true);
       })
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    if (isSuccess) {
-      const timer = setTimeout(() => {
-        setIsSuccess(false);
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isSuccess]);
 
   return (
     <div>
       {isSuccess && (
         <div className="alert alert-success" role="alert">
-          User added successfully!
+          Password Reset Successfully!
         </div>
       )}
-      <form onSubmit={addUser}>
+      { isIncorrect && <Incorrect reloadLocation = "/Dashboard"/>}
+      
+    <form onSubmit={resetPassword}>
         <div className="form-group">
           <label htmlFor="name">User Name</label>
           <input
@@ -66,12 +54,13 @@ const AddUser = () => {
             onChange={handleChange}
           />
         </div>
+        
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="newPassword">New Password</label>
           <input
             type="password"
             className="form-control"
-            id="password"
+            id="newpassword"
             name="password"
             value={users.password}
             onChange={handleChange}
@@ -86,4 +75,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default ResetPassword;
