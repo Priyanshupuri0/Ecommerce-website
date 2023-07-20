@@ -27,9 +27,7 @@ app.use((req, res, next) => {
     next();
   });
 
-app.post('/sendForm', router);
-app.post('/register', router);
-app.get('/getAllUsers', router);
+app.use('/', router);
 
 // authentication endpoint
 app.get("/auth-endpoint", auth, (request, response) => {
